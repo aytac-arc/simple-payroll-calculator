@@ -1,0 +1,26 @@
+{
+  "name": "aws-nodejs-typescript",
+  "version": "1.0.0",
+  "description": "Serverless webpack example using Typescript",
+  "main": "handler.js",
+  "scripts": {
+    "lint": "node_modules/tslint/bin/tslint *.ts 'src/**/*.ts'",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy_dev": "node_modules/serverless/bin/serverless deploy"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "0.0.19",
+    "@types/aws-sdk": "^2.7.0",
+    "@types/node": "^8.0.49",
+    "econ-logger": "^1.0.1",
+    "serverless-offline": "^3.16.0",
+    "serverless-webpack": "^3.0.0",
+    "ts-loader": "^2.3.7",
+    "tslint": "^5.8.0",
+    "typescript": "^2.5.2",
+    "web-request": "^1.0.7",
+    "webpack": "^3.6.0"
+  },
+  "author": "The serverless webpack authors (https://github.com/elastic-coders/serverless-webpack)",
+  "license": "MIT"
+}
