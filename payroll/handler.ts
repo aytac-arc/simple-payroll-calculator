@@ -7,15 +7,15 @@ import * as logger from "econ-logger";
 const processPayroll = async (monthlySalary: number) => {
     logger.info("Processing payroll...");
 
-    const deductions = await this.getDeductions(monthlySalary);
+    const deductions = await getDeductions(monthlySalary);
     logger.info({message: "Total Deductions: ", deductions});
 
-    const netPay = this.calculateNetPay(deductions);
+    const netPay = calculateNetPay(monthlySalary, deductions);
 
     return new Promise( (resolve, reject) => {
         resolve({
             deductions,
-            grossPay: this.monthlySalary,
+            grossPay: monthlySalary,
             netPay,
         });
     });

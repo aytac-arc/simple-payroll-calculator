@@ -14,7 +14,7 @@ const getHDMFDeduction = async (monthlySalary: number) => {
     };
 
     const payload = JSON.stringify({
-        salary: this.monthlySalary,
+        salary: monthlySalary,
     });
 
     const data = await Request.post(uri, options, payload);
