@@ -5,7 +5,7 @@ import { API_BASE_URL } from "../../config/Constants";
 const getSSSDeduction = async (monthlySalary: number) => {
     logger.info("Retrieving SSS deduction...");
 
-    const uri = API_BASE_URL.SSS + "/calculate";
+    const uri = API_BASE_URL.SSS + "/api/v1/calculate";
 
     const options = {
         headers : {

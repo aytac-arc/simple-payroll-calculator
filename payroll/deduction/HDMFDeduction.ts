@@ -5,7 +5,7 @@ import { API_BASE_URL } from "../../config/Constants";
 const getHDMFDeduction = async (monthlySalary: number) => {
     logger.info("Retrieving HDMF deduction...");
 
-    const uri = API_BASE_URL.HDMF + "/calculate";
+    const uri = API_BASE_URL.HDMF + "/api/v1/calculate";
 
     const options = {
         headers : {
