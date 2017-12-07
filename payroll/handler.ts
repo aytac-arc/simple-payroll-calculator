@@ -47,20 +47,24 @@ const calculateNetPay = (monthlySalary: number, deductions: any) => {
 };
 
 const payroll: Handler = async (event: any, context: Context, callback: Callback) => {
-
     logger.info({message: "Incoming event", event});
 
-    const body = JSON.parse(event.body);
-    const salary = body.salary;
+    try {
+        const body = JSON.parse(event.body);
+        const salary = body.salary;
 
-    const data = await processPayroll(salary);
+        const data = await processPayroll(salary);
 
-    if (data) {
-        logger.info({message: "Returning data", data});
+        if (data) {
+            logger.info({message: "Returning data", data});
 
-        responseCallback(callback, 200, data);
-    } else {
-        responseCallback(callback, 500, "Internal Server Error");
+            responseCallback(callback, 200, data);
+        } else {
+            throw new Error("Unable to process payroll");
+        }
+    } catch (err) {
+        logger.error({message: "Received error", error: err.message});
+        responseCallback(callback, 500, err.message || "Internal Server Error");
     }
 };
 

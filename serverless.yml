@@ -17,7 +17,12 @@ provider:
 functions:
   payroll:
     handler: payroll/handler.payroll
+    timeout: 5
     events:
       - http:
           method: post
           path: payroll
+
+custom:
+  serverless-offline:
+    port: 3003
